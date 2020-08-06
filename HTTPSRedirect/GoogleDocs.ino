@@ -75,6 +75,7 @@ void setup() {
   // Use HTTPSRedirect class to create a new TLS connection
   client = new HTTPSRedirect(httpsPort);
   client->setInsecure();
+  client->setTimeout(5000);
   client->setPrintResponseBody(true);
   client->setContentTypeHeader("application/json");
   
@@ -162,6 +163,7 @@ void loop() {
     free_stack_before = ESP.getFreeContStack();
     client = new HTTPSRedirect(httpsPort);
     client->setInsecure();
+    client->setTimeout(5000);
     flag = true;
     client->setPrintResponseBody(true);
     client->setContentTypeHeader("application/json");
